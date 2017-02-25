@@ -1,5 +1,5 @@
 # vue-strap
-Bootstrap components built with Vue.js.
+Bootstrap components built with Vue.js with better compatibility with Vuex.
 
 This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS. As a result no dependency on jQuery or Bootstrap's JavaScript is required. The only required dependencies are:
 
@@ -11,7 +11,7 @@ This repository contains a set of native Vue.js components based on Bootstrap's 
 ### NPM
 
 ```bash
-$ npm install github:wffranco/vue-strap --save
+$ npm install github:themcaffee/vue-strap --save
 ```
 
 ### CommonJS

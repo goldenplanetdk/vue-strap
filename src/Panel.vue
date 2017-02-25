@@ -1,6 +1,6 @@
 <template>
   <div :class="['panel',panelType]">
-    <div :class="['panel-heading',{'accordion-toggle':inAccordion}]" @click.prevent="inAccordion&&toggle()">
+    <div :class="['panel-heading',{'accordion-toggle':collapsible}]" @click.prevent="collapsible&&toggle()">
       <slot name="header"><h4 class="panel-title">{{ header }}</h4></slot>
     </div>
     <transition
@@ -23,9 +23,10 @@ export default {
   props: {
     header: {type: String},
     isOpen: {type: Boolean, default: null},
-    type: {type: String, default : null}
+    type: {type: String, default : null},
+    collapse: {type: Boolean, default: null}
   },
-  data() {
+  data () {
     return {
       open: this.isOpen
     }
@@ -37,13 +38,19 @@ export default {
   },
   computed: {
     inAccordion () { return this.$parent && this.$parent._isAccordion },
-    panelType () { return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default') }
+    panelType () { return 'panel-' + (this.type || (this.$parent && this.$parent.type) || 'default') },
+    collapsible () { return this.collapse || this.inAccordion }
   },
   methods: {
     toggle () {
       this.open = !this.open
       if (this.inAccordion) {
         this.$parent.openChild(this)
+      }
+      if (this.open) {
+        this.$emit('opened', this)
+      } else {
+        this.$emit('closed', this)
       }
     },
     enter (el) {
@@ -81,7 +88,5 @@ export default {
 }
 .collapse-enter,
 .collapse-leave-active {
-
 }
-
 </style>
