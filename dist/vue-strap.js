@@ -4863,6 +4863,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    isLi: function isLi() {
 	      return this.$parent._isTabs || this.$parent._navbar || this.$parent.menu;
 	    },
+	    isDropdown: function isDropdown() {
+	      return this.isLi && !this.dropup;
+	    },
+	    isDropup: function isDropup() {
+	      return this.isLi && this.dropup;
+	    },
 	    menu: function menu() {
 	      return !this.$parent || this.$parent.navbar;
 	    },
@@ -4911,8 +4917,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: [{
 	      open: _vm.show,
 	      disabled: _vm.disabled,
-	      dropdown: _vm.isLi && !_vm.dropup,
-	      dropup: _vm.isLi && _vm.dropup,
+	      dropdown: _vm.isDropdown,
+	      dropup: _vm.isDropup,
 	      'input-group-btn': _vm.inInput,
 	      'btn-group': !_vm.isLi && !_vm.inInput
 	    }]

@@ -1,6 +1,6 @@
 <template>
   <div :is="isLi?'li':'div'" v-click-outside="blur"
-    :class="[{open:show,disabled:disabled,dropdown:isLi&&!dropup,dropup:isLi&&dropup,'input-group-btn':inInput,'btn-group':!isLi&&!inInput}]"
+    :class="[{open:show,disabled:disabled,dropdown:isDropdown,dropup:isDropup,'input-group-btn':inInput,'btn-group':!isLi&&!inInput}]"
   >
     <slot name="before"></slot>
     <a v-if="isLi" role="button" :class="['dropdown-toggle',buttonSize,{disabled:disabled}]"
@@ -50,6 +50,8 @@ export default {
     buttonSize () { return ~['lg', 'sm', 'xs'].indexOf(this.size) ? 'btn-' + this.size : '' },
     inInput () { return this.$parent._input },
     isLi () { return this.$parent._isTabs || this.$parent._navbar || this.$parent.menu },
+    isDropdown () { return this.isLi && !this.dropup },
+    isDropup () { return this.isLi && this.dropup },
     menu () { return !this.$parent || this.$parent.navbar },
     slots () { return this._slotContents },
     submenu () { return this.$parent && (this.$parent.menu || this.$parent.submenu) }
