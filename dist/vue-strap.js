@@ -4837,7 +4837,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    size: { type: String, default: null },
 	    text: { type: String, default: null },
 	    type: { type: String, default: 'default' },
-	    value: { type: Boolean, default: false }
+	    value: { type: Boolean, default: false },
+	    dropup: { type: Boolean, default: false }
 	  },
 	  data: function data() {
 	    var show = this.value;
@@ -4910,7 +4911,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: [{
 	      open: _vm.show,
 	      disabled: _vm.disabled,
-	      dropdown: _vm.isLi,
+	      dropdown: _vm.isLi && !_vm.dropup,
+	      dropup: _vm.isLi && _vm.dropup,
 	      'input-group-btn': _vm.inInput,
 	      'btn-group': !_vm.isLi && !_vm.inInput
 	    }]

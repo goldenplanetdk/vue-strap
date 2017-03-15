@@ -1,6 +1,6 @@
 <template>
   <div :is="isLi?'li':'div'" v-click-outside="blur"
-    :class="[{open:show,disabled:disabled,dropdown:isLi,'input-group-btn':inInput,'btn-group':!isLi&&!inInput}]"
+    :class="[{open:show,disabled:disabled,dropdown:isLi&&!dropup,dropup:isLi&&dropup,'input-group-btn':inInput,'btn-group':!isLi&&!inInput}]"
   >
     <slot name="before"></slot>
     <a v-if="isLi" role="button" :class="['dropdown-toggle',buttonSize,{disabled:disabled}]"
@@ -35,7 +35,8 @@ export default {
     size: {type: String, default: null},
     text: {type: String, default: null},
     type: {type: String, default: 'default'},
-    value: {type: Boolean, default: false}
+    value: {type: Boolean, default: false},
+    dropup: {type: Boolean, default: false}
   },
   data () {
     var show = this.value
