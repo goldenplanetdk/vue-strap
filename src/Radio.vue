@@ -6,7 +6,7 @@
       <input type="radio" autocomplete="off" ref="input"
         v-show="!readonly"
         v-model="check"
-        :value="checkedValue"
+        :value="selectedValue"
         :name="name"
         :readonly="readonly"
         :disabled="disabled"
@@ -16,7 +16,7 @@
     <label v-else class="open">
       <input type="radio" autocomplete="off" ref="input"
         v-model="check"
-        :value="checkedValue"
+        :value="selectedValue"
         :name="name"
         :readonly="readonly"
         :disabled="disabled"
@@ -32,10 +32,10 @@
 export default {
   props: {
     button: {type: Boolean, default: false},
-    checkedValue: {default: true},
     disabled: {type: Boolean, default: false},
     name: {type: String, default: null},
     readonly: {type: Boolean, default: false},
+    selectedValue: {default: true},
     type: {type: String, default: null},
     value: {default: false}
   },
@@ -45,41 +45,55 @@ export default {
     }
   },
   computed: {
-    active () { return this.check === this.checkedValue },
-    parentValue () { return this._inGroup ? this.$parent.val === this.value : null },
-    buttonStyle () { return this.button || (this._inGroup && this.$parent.buttons) },
+    active () { return this.check === this.selectedValue },
+    inGroup () { return this.$parent && this.$parent.btnGroup && !this.$parent._checkboxGroup },
+    parentValue () { return this.$parent.val },
+    buttonStyle () { return this.button || (this.$parent && this.$parent.btnGroup && this.$parent.buttons) },
     typeColor () { return (this.type || (this.$parent && this.$parent.type)) || 'default' }
   },
   watch: {
     check (val) {
-      if (this.checkedValue === val) {
+      if (this.selectedValue === val) {
         this.$emit('input', val)
         this.$emit('checked', true)
-        if (this._inGroup) { this.$parent.val = val }
+        this.updateParent()
       }
     },
     parentValue (val) {
-      if (this.check !== val && this.checkedValue === val) { this.check = val }
+      this.updateFromParent()
     },
     value (val) {
-      this.check = this.checkedValue === val ? val : null
-    }
-  },
-  created () {
-    var parent = this.$parent
-    if (parent && parent._btnGroup && !parent._checkboxGroup) {
-      this._inGroup = true
-      parent._radioGroup = true
-    }
-    if (this.$parent._radioGroup) {
-      if (this.$parent.val) {
-        this.check = (this.$parent.val === this.checkedValue)
-      } else if (this.check) {
-        this.$parent.val = this.checkedValue
+      if (this.selectedValue == val) {
+        this.check = val
+      } else {
+        this.check = false
       }
     }
   },
+  created () {
+    if (this.inGroup) {
+      var parent = this.$parent
+      parent._radioGroup = true
+      this.updateFromParent()
+    }
+  },
   methods: {
+    updateFromParent() {
+      if (this.inGroup) {
+        if (this.selectedValue == this.$parent.val) {
+          this.check = this.selectedValue
+        } else {
+          this.check = false
+        }
+      }
+    },
+    updateParent() {
+      if (this.inGroup) {
+        if (this.selectedValue === this.check) {
+          this.$parent.val = this.selectedValue
+        }
+      }
+    },
     focus () {
       this.$refs.input.focus()
     },
@@ -87,10 +101,7 @@ export default {
       if (this.disabled) { return }
       this.focus()
       if (this.readonly) { return }
-      this.check = this.checkedValue
-      if (this._inGroup) {
-        this.$parent.val = this.checkedValue
-      }
+      this.check = this.selectedValue
     }
   }
 }

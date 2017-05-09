@@ -18,9 +18,9 @@
     </div>
     <doc-code language="markup">
       &lt;checkbox v-model="checkboxValue.one" true-value="1">One&lt;/checkbox>
-      &lt;checkbox v-model="checkboxValue.two" true-value="two" type="primary">Two&lt;/checkbox>
-      &lt;checkbox v-model="checkboxValue.three" :true-value="2+1" type="info">Three&lt;/checkbox>
-      &lt;checkbox button v-model="checkboxValue.four" type="danger">Four&lt;/checkbox>
+      &lt;checkbox v-model="checkboxValue.two" true-value="two" type="danger/warning/success">Two&lt;/checkbox>
+      &lt;checkbox v-model="checkboxValue.three" :true-value="2+1" type="primary">Three&lt;/checkbox>
+      &lt;checkbox button v-model="checkboxValue.four" type="info">Four (default true/false)&lt;/checkbox>
     </doc-code>
     <doc-table>
       <div>

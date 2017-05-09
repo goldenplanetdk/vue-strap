@@ -7,7 +7,7 @@
       @keydown.space.stop.prevent="toggle"
       @keydown.enter.stop.prevent="toggle"
     >
-      <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || selected"></span>
+      <span class="btn-content" v-html="loading ? text.loading : showPlaceholder || (multiple && showCount ? selectedText : selected)"></span>
       <span v-if="clearButton&&values.length" class="close" @click="clear()">&times;</span>
     </div>
     <select ref="sel" v-model="val" :name="name" class="secret" :multiple="multiple" :required="required" :readonly="readonly" :disabled="disabled">
@@ -66,6 +66,8 @@ export default {
     required: {type: Boolean, default: null},
     search: {type: Boolean, default: false},
     searchText: {type: String, default: null},
+    countText: {type: String, default: null},
+    showCount: {type: Boolean, default: false},
     url: {type: String, default: null},
     value: null
   },
@@ -99,6 +101,7 @@ export default {
       this.$emit('selected', sel)
       return sel.join(', ')
     },
+    selectedText () { return this.countText || this.text.selected.replace('{{count}}', this.values.length) },
     showPlaceholder () { return (this.values.length === 0 || !this.hasParent) ? (this.placeholder || this.text.notSelected) : null },
     text () { return translations(this.lang) },
     values () { return this.val instanceof Array ? this.val : ~[null, undefined].indexOf(this.val) ? [] : [this.val] },
@@ -204,6 +207,7 @@ export default {
       this.$emit('options', this.list)
     },
     toggle () {
+      if (this.disabled && !this.show) return;
       this.show = !this.show
       if (!this.show) this.$refs.btn.focus()
     },
@@ -335,3 +339,4 @@ export default {
 }
 .btn-group-justified .dropdown-menu { width: 100%; }
 </style>
+

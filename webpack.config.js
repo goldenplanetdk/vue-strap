@@ -1,5 +1,9 @@
 var webpack = require('webpack')
 var path = require('path')
+//package version
+var Vue = require('vue')
+var pkg = require('./package.json')
+var package_version = pkg.name + ' ' + pkg.version + "\n" + pkg.homepage + "\n" + 'Compiled using Vue ' + Vue.version
 
 module.exports = {
   entry: './docs/index.js',
@@ -31,13 +35,16 @@ module.exports = {
     presets: ['es2015'],
     plugins: ['transform-runtime']
   },
-  devtool: 'source-map'
+  plugins: [
+    new webpack.BannerPlugin(package_version)
+  ]
 };
 
 
-if (process.env.NODE_ENV === 'production') {
-  delete module.exports.devtool;
-  module.exports.plugins = [
+if (process.env.NODE_ENV !== 'production') {
+  module.exports.devtool = 'source-map';
+} else {
+  module.exports.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -48,5 +55,5 @@ if (process.env.NODE_ENV === 'production') {
         warnings: false
       }
     })
-  ];
+  )
 }
