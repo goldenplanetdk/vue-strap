@@ -6,7 +6,7 @@
   "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "wffranco/vue-strap"
+    "url": "themcaffee/vue-strap"
   },
   "homepage": "http://wffranco.github.io/vue-strap/",
   "directories": {
