@@ -206,11 +206,7 @@ export default {
     },
     validate () {
       if (!this.canValidate) { return true }
-      if (typeof this.val === Number) {
-        let value = this.val
-      } else {
-        let value = (this.val || '').trim()
-      }
+      let value = typeof this.val === Number ? this.val : (this.val || '').trim()
       if (!value) { return !this.required }
       if (this.match !== null) { return this.match === value }
       if (value.length < this.minlength) { return false }
