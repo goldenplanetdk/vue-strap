@@ -150,7 +150,6 @@ export default {
     val (val, old) {
       this.$emit('input', val)
       if (val !== old) {
-        this.value = val
         if (this.mask instanceof Function) {
           val = this.mask(val || '')
           if (this.val !== val) {
