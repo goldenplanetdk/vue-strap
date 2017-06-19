@@ -206,6 +206,8 @@ export default {
     },
     validate () {
       if (!this.canValidate) { return true }
+      console.log(this.val)
+      console.log(typeof this.val)
       let value = typeof this.val === Number ? this.val : (this.val || '').trim()
       if (!value) { return !this.required }
       if (this.match !== null) { return this.match === value }
