@@ -207,7 +207,7 @@ export default {
     validate () {
       if (!this.canValidate) { return true }
       let value = typeof this.val === 'number' ? this.val : (this.val || '').trim()
-      if (!value) { return !this.required }
+      if (!value && this.value !== 0) { return !this.required }
       if (this.match !== null) { return this.match === value }
       if (value.length < this.minlength) { return false }
       if (this.nativeValidate && !this.input.checkValidity()) { return false }
