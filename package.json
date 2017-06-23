@@ -8,7 +8,7 @@
     "type": "git",
     "url": "themcaffee/vue-strap"
   },
-  "homepage": "http://wffranco.github.io/vue-strap/",
+  "homepage": "http://themcaffee.github.io/vue-strap/",
   "directories": {
     "src": "src/"
   },
@@ -74,6 +74,6 @@
     "version": "npm run build && git add -A dist",
     "postversion": "git push && git push --tags"
   },
-  "author": "wffranco",
+  "author": "themcaffee",
   "license": "MIT"
 }

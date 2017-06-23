@@ -1,10 +1,15 @@
-# vue-strap
+# vue-strap (expanded)
 Bootstrap components built with Vue.js with better compatibility with Vuex.
 
 This repository contains a set of native Vue.js components based on Bootstrap's markup and CSS. As a result no dependency on jQuery or Bootstrap's JavaScript is required. The only required dependencies are:
 
 * [Vue.js](http://vuejs.org/) (required ^v2.x.x, test with v2.0.3).
 * [Bootstrap CSS](http://getbootstrap.com/) (required 3.x.x, test with 3.3.6). VueStrap doesn't depend on a very precise version of Bootstrap.
+
+This project has been expanded upon from [wffranco's implementation](https://github.com/wffranco/vue-straphttps://github.com/wffranco/vue-strap). Additional features:
+
+- Individual collapsible panels
+- Stackable Modals
 
 ## Installation
 
@@ -69,7 +74,7 @@ and on both the Bower and NPM packages.
 ```
 
 ## Docs
-See the [documentation](https://wffranco.github.io/vue-strap/) with live editable examples.
+See the [documentation](https://themcaffee.github.io/vue-strap/) with live editable examples.
 
 ## Local Setup
 * Run the docs site in development mode with `npm run docs`. This will watch for file changes as you work.

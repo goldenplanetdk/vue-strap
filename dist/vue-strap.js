@@ -1,6 +1,6 @@
 /*!
  * vue-strap 2.0.10
- * http://wffranco.github.io/vue-strap/
+ * http://themcaffee.github.io/vue-strap/
  * Compiled using Vue 2.3.4
  */
 (function webpackUniversalModuleDefinition(root, factory) {
