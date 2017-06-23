@@ -1,6 +1,6 @@
 <template>
   <div role="dialog" :class="['modal',effect]" @click="backdrop&&action(false,1)" @transitionend="transition = false">
-    <div :class="['modal-dialog',{'modal-lg':large,'modal-sm':small}]" role="document" :style="{width: optionalWidth}" @click.stop="action(null)">
+    <div :class="['modal-dialog',asideClass,{'modal-lg':large,'modal-sm':small}]" role="document" :style="{width: optionalWidth}" @click.stop="action(null)">
       <div class="modal-content">
         <slot name="modal-header">
           <div class="modal-header">
@@ -34,7 +34,9 @@ export default {
     small: {type: Boolean, default: false},
     title: {type: String, default: ''},
     value: {type: Boolean, required: true},
-    width: {default: null}
+    width: {default: null},
+    aside: {type: Boolean, default: false},
+    asideIndex: {type: Number, default: 1}
   },
   data () {
     return {
@@ -50,6 +52,9 @@ export default {
         return this.width + 'px'
       }
       return this.width
+    },
+    asideClass () {
+      return this.aside ? 'aside aside-' + this.asideIndex : ''
     }
   },
   watch: {
@@ -105,6 +110,11 @@ export default {
 }
 .modal.in {
   background-color: rgba(0,0,0,0.5);
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -ms-perspective: 2000px;
+  -o-perspective: 2000px;
+  perspective: 2000px;
 }
 .modal.zoom .modal-dialog {
   -webkit-transform: scale(0.1);
@@ -125,5 +135,75 @@ export default {
   -webkit-transform: translate3d(0, -300px, 0);
   transform: translate3d(0, -300px, 0);
   opacity: 1;
+}
+.modal.in .modal-dialog.aside {
+  -webkit-transform: -340px;
+  -moz-transform: -340px;
+  -ms-transform: -340px;
+  -o-transform: -340px;
+  transform: -340px;
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.modal.in .modal-dialog.aside.aside-1 {
+  -webkit-transform: calc(-300px);
+  -moz-transform: calc(-300px);
+  -ms-transform: calc(-300px);
+  -o-transform: calc(-300px);
+  transform: calc(-300px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+}
+.modal.in .modal-dialog.aside.aside-2 {
+  -webkit-transform: calc(-260px);
+  -moz-transform: calc(-260px);
+  -ms-transform: calc(-260px);
+  -o-transform: calc(-260px);
+  transform: calc(-260px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+}
+.modal.in .modal-dialog.aside.aside-3 {
+  -webkit-transform: calc(-220px);
+  -moz-transform: calc(-220px);
+  -ms-transform: calc(-220px);
+  -o-transform: calc(-220px);
+  transform: calc(-220px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+}
+.modal.in .modal-dialog.aside.aside-4 {
+  -webkit-transform: calc(-180px);
+  -moz-transform: calc(-180px);
+  -ms-transform: calc(-180px);
+  -o-transform: calc(-180px);
+  transform: calc(-180px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+}
+.modal.in .modal-dialog.aside.aside-5 {
+  -webkit-transform: calc(-140px);
+  -moz-transform: calc(-140px);
+  -ms-transform: calc(-140px);
+  -o-transform: calc(-140px);
+  transform: calc(-140px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
 }
 </style>

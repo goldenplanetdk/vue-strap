@@ -76,6 +76,19 @@
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
       </modal>
+
+      <!-- Stackable modals -->
+      <button class="btn btn-default" @click="launchModal('modal-1')">Stackable Modals</button>
+      <div v-for="n in 5">
+        <modal :title="'Stackable Modal ' + n"
+               :value="modalOpen('modal-' + n)"
+               @opened="launchModal('modal-' + n)"
+               @closed="closeModal('modal-' + n)"
+               :aside="modalAside('modal-' + n)"
+               :aside-index="n">
+          <button class="btn btn-default" @click="launchModal('modal-' + (n + 1))">Launch modal on top</button>
+        </modal>
+      </div>
     </div>
     <hr/>
     Have different ways to use it:
@@ -219,7 +232,8 @@ export default {
       zoomModal: false,
       showCustomModal: false,
       largeModal: false,
-      smallModal: false
+      smallModal: false,
+      stackableModals: []
     }
   },
   methods: {
@@ -229,6 +243,20 @@ export default {
     alert () {
       alert('Another Action.\nClose the modal...')
       this.showCustomModal = false
+    },
+    launchModal (name) {
+      if (this.stackableModals.indexOf(name) === -1) {
+        this.stackableModals.push(name)
+      }
+    },
+    closeModal () {
+      this.stackableModals.pop()
+    },
+    modalOpen (name) {
+      return this.stackableModals.indexOf(name) !== -1
+    },
+    modalAside (name) {
+      return this.stackableModals.indexOf(name) !== this.stackableModals.length - 1
     }
   }
 }
