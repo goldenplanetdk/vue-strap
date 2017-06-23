@@ -1,6 +1,6 @@
 <template>
   <div role="dialog" :class="['modal',effect]" @click="backdrop&&action(false,1)" @transitionend="transition = false">
-    <div :class="['modal-dialog',asideClass,{'modal-lg':large,'modal-sm':small}]" role="document" :style="{width: optionalWidth}" @click.stop="action(null)">
+    <div :class="['modal-dialog',stackClass,{'modal-lg':large,'modal-sm':small}]" role="document" :style="{width: optionalWidth}" @click.stop="action(null)">
       <div class="modal-content">
         <slot name="modal-header">
           <div class="modal-header">
@@ -35,8 +35,8 @@ export default {
     title: {type: String, default: ''},
     value: {type: Boolean, required: true},
     width: {default: null},
-    aside: {type: Boolean, default: false},
-    asideIndex: {type: Number, default: 1}
+    stacked: {type: Boolean, default: false},
+    stackIndex: {type: Number, default: 1}
   },
   data () {
     return {
@@ -53,8 +53,8 @@ export default {
       }
       return this.width
     },
-    asideClass () {
-      return this.aside ? 'aside aside-' + this.asideIndex : ''
+    stackClass () {
+      return this.stacked ? 'stack stack-' + this.stackIndex : ''
     }
   },
   watch: {
@@ -136,7 +136,7 @@ export default {
   transform: translate3d(0, -300px, 0);
   opacity: 1;
 }
-.modal.in .modal-dialog.aside {
+.modal.in .modal-dialog.stack {
   -webkit-transform: -340px;
   -moz-transform: -340px;
   -ms-transform: -340px;
@@ -151,7 +151,7 @@ export default {
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-.modal.in .modal-dialog.aside.aside-1 {
+.modal.in .modal-dialog.stack.stack-1 {
   -webkit-transform: calc(-300px);
   -moz-transform: calc(-300px);
   -ms-transform: calc(-300px);
@@ -162,7 +162,7 @@ export default {
   -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
   transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
 }
-.modal.in .modal-dialog.aside.aside-2 {
+.modal.in .modal-dialog.stack.stack-2 {
   -webkit-transform: calc(-260px);
   -moz-transform: calc(-260px);
   -ms-transform: calc(-260px);
@@ -173,7 +173,7 @@ export default {
   -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
   transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
 }
-.modal.in .modal-dialog.aside.aside-3 {
+.modal.in .modal-dialog.stack.stack-3 {
   -webkit-transform: calc(-220px);
   -moz-transform: calc(-220px);
   -ms-transform: calc(-220px);
@@ -184,7 +184,7 @@ export default {
   -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
   transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
 }
-.modal.in .modal-dialog.aside.aside-4 {
+.modal.in .modal-dialog.stack.stack-4 {
   -webkit-transform: calc(-180px);
   -moz-transform: calc(-180px);
   -ms-transform: calc(-180px);
@@ -195,7 +195,7 @@ export default {
   -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
   transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
 }
-.modal.in .modal-dialog.aside.aside-5 {
+.modal.in .modal-dialog.stack.stack-5 {
   -webkit-transform: calc(-140px);
   -moz-transform: calc(-140px);
   -ms-transform: calc(-140px);

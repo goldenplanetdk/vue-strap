@@ -85,8 +85,8 @@
                effect="zoom"
                @opened="launchModal('modal-' + n)"
                @closed="closeModal('modal-' + n)"
-               :aside="modalAside('modal-' + n)"
-               :aside-index="n">
+               :stacked="modalStacked('modal-' + n)"
+               :stack-index="n">
           <button v-if="n < 5" class="btn btn-default" @click="launchModal('modal-' + (n + 1))">Launch modal on top</button>
         </modal>
       </div>
@@ -182,13 +182,13 @@
         <p>Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</p>
       </div>
       <div>
-        <p>aside</p>
+        <p>stacked</p>
         <p><code>Boolean</code></p>
         <p><code>false</code></p>
         <p>true if the modal is not the top modal being displayed, false otherwise</p>
       </div>
       <div>
-        <p>aside-index</p>
+        <p>stack-index</p>
         <p><code>Number</code></p>
         <p><code>1</code></p>
         <p>The current index in the stack of modals. Needed to get the correct offset. There should be no duplicate indexes because that will cause problems.</p>
@@ -268,7 +268,7 @@ export default {
     modalOpen (name) {
       return this.stackableModals.indexOf(name) !== -1
     },
-    modalAside (name) {
+    modalStacked (name) {
       return this.stackableModals.indexOf(name) !== this.stackableModals.length - 1
     }
   }
