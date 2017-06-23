@@ -82,11 +82,12 @@
       <div v-for="n in 5">
         <modal :title="'Stackable Modal ' + n"
                :value="modalOpen('modal-' + n)"
+               effect="zoom"
                @opened="launchModal('modal-' + n)"
                @closed="closeModal('modal-' + n)"
                :aside="modalAside('modal-' + n)"
                :aside-index="n">
-          <button class="btn btn-default" @click="launchModal('modal-' + (n + 1))">Launch modal on top</button>
+          <button v-if="n < 5" class="btn btn-default" @click="launchModal('modal-' + (n + 1))">Launch modal on top</button>
         </modal>
       </div>
     </div>
