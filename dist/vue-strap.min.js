@@ -1,5 +1,5 @@
 /*!
- * vue-strap 2.0.10
+ * vue-strap 2.0.11
  * http://themcaffee.github.io/vue-strap/
  * Compiled using Vue 2.3.4
  */

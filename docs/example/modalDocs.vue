@@ -181,6 +181,18 @@
         <p><code>null</code></p>
         <p>Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.</p>
       </div>
+      <div>
+        <p>aside</p>
+        <p><code>Boolean</code></p>
+        <p><code>false</code></p>
+        <p>true if the modal is not the top modal being displayed, false otherwise</p>
+      </div>
+      <div>
+        <p>aside-index</p>
+        <p><code>Number</code></p>
+        <p><code>1</code></p>
+        <p>The current index in the stack of modals. Needed to get the correct offset. There should be no duplicate indexes because that will cause problems.</p>
+      </div>
     </doc-table>
     <doc-table type="Events">
       <div>

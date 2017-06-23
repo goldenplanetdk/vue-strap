@@ -1,6 +1,6 @@
 /*!
- * vue-strap 2.0.10
- * http://wffranco.github.io/vue-strap/
+ * vue-strap 2.0.11
+ * http://themcaffee.github.io/vue-strap/
  * Compiled using Vue 2.3.4
  */
 /******/ (function(modules) { // webpackBootstrap
@@ -284,6 +284,7 @@
 	    }
 	  }
 	}; //
+	//
 	//
 	//
 	//
@@ -5374,7 +5375,7 @@
 	  }, [_vm._v("Back to top")]), _vm._v(" "), _c('a', {
 	    staticClass: "back-to-top",
 	    attrs: {
-	      "href": "https://github.com/wffranco/vue-strap"
+	      "href": "https://github.com/themcaffee/vue-strap"
 	    }
 	  }, [_vm._v("GitHub")])])
 	},staticRenderFns: []}
@@ -11883,15 +11884,15 @@
 	    attrs: {
 	      "language": "javascript"
 	    }
-	  }, [_vm._v("\n      $ npm install github:wffranco/vue-strap --save\n\n      var alert = require('vue-strap/src/alert');\n      // or\n      var alert = require('vue-strap').alert;\n\n      new Vue({\n        components: {\n          alert: alert\n        }\n      })\n    ")]), _vm._v(" "), _c('h4', [_vm._v("ES6")]), _vm._v(" "), _c('doc-code', {
+	  }, [_vm._v("\n      $ npm install github:themcaffee/vue-strap --save\n\n      var alert = require('vue-strap/src/alert');\n      // or\n      var alert = require('vue-strap').alert;\n\n      new Vue({\n        components: {\n          alert: alert\n        }\n      })\n    ")]), _vm._v(" "), _c('h4', [_vm._v("ES6")]), _vm._v(" "), _c('doc-code', {
 	    attrs: {
 	      "language": "javascript"
 	    }
-	  }, [_vm._v("\n      $ npm install github:wffranco/vue-strap --save\n\n      import alert from 'vue-strap/src/alert'\n      // or\n      import { alert } from 'vue-strap'\n\n      new Vue({\n        components: {\n          alert\n        }\n      })\n    ")]), _vm._v(" "), _c('h4', [_vm._v("AMD")]), _vm._v(" "), _c('doc-code', {
+	  }, [_vm._v("\n      $ npm install github:themcaffee/vue-strap --save\n\n      import alert from 'vue-strap/src/alert'\n      // or\n      import { alert } from 'vue-strap'\n\n      new Vue({\n        components: {\n          alert\n        }\n      })\n    ")]), _vm._v(" "), _c('h4', [_vm._v("AMD")]), _vm._v(" "), _c('doc-code', {
 	    attrs: {
 	      "language": "javascript"
 	    }
-	  }, [_vm._v("\n      $ bower install github:wffranco/vue-strap\n\n      define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });\n    ")]), _vm._v(" "), _c('h4', [_vm._v("Browser globals")]), _vm._v(" "), _c('p', [_vm._v("\n      The "), _c('code', [_vm._v("dist")]), _vm._v(" folder contains "), _c('code', [_vm._v("vue-strap.js")]), _vm._v(" and "), _c('code', [_vm._v("vue-strap.min.js")]), _vm._v(" with\n      all components exported in the "), _c('code', [_vm._v("window.VueStrap")]), _vm._v(" object. These bundles are also available on both the\n      Bower and NPM packages.\n    ")]), _vm._v(" "), _c('doc-code', {
+	  }, [_vm._v("\n      $ bower install github:themcaffee/vue-strap\n\n      define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });\n    ")]), _vm._v(" "), _c('h4', [_vm._v("Browser globals")]), _vm._v(" "), _c('p', [_vm._v("\n      The "), _c('code', [_vm._v("dist")]), _vm._v(" folder contains "), _c('code', [_vm._v("vue-strap.js")]), _vm._v(" and "), _c('code', [_vm._v("vue-strap.min.js")]), _vm._v(" with\n      all components exported in the "), _c('code', [_vm._v("window.VueStrap")]), _vm._v(" object. These bundles are also available on both the\n      Bower and NPM packages.\n    ")]), _vm._v(" "), _c('doc-code', {
 	    attrs: {
 	      "language": "markup"
 	    }
@@ -12917,6 +12918,18 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 	
 	exports.default = {
 	  components: {
@@ -13539,7 +13552,7 @@
 	    attrs: {
 	      "language": "html"
 	    }
-	  }, [_vm._v("\n    <!-- with v-model (\"cancel\" event close the modal, \"ok\" don't, so you have to do it manual) -->\n    <modal v-model=\"show\" @ok=\"show = false\">\n      ...\n    </modal>\n    <!-- handling ok & cancel events -->\n    <modal title=\"Fade/Zoom Modal\" effect=\"fade/zoom\"\n      :value=\"show\" @ok=\"okAction\" @cancel=\"cancelAction\"\n    >\n      ...\n    </modal>\n    <modal v-model=\"show\" effect=\"fade\">\n      <!-- custom header -->\n      <div slot=\"modal-header\" class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <i>Custom</i> <code>Modal</code> <b>Title</b>\n        </h4>\n      </div>\n      ...\n      <!-- custom buttons -->\n      <div slot=\"modal-footer\" class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" @click=\"show = false\">Exit</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"saveMethod\">Custom Save</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"otherMethod\">Another Action</button>\n      </div>\n    </modal>\n  ")]), _vm._v(" "), _c('doc-table', [_c('div', [_c('p', [_vm._v("backdrop")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("true")])]), _vm._v(" "), _c('p', [_vm._v("Enables/disables closing the modal by clicking on the backdrop.")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("callback")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Function")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("A callback Function when you click the modal primary button.")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("cancel-text")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p', [_vm._v("Close")]), _vm._v(" "), _c('p', [_vm._v("Text for cancel button")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("effect")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("set the name of the effect to use on modal, like fade or zoom")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("large")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("false")])]), _vm._v(" "), _c('p', [_vm._v("Large modal (see boostrap's documentation for .modal-lg)")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("ok-text")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p', [_vm._v("Save changes")]), _vm._v(" "), _c('p', [_vm._v("Text for OK button")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("small")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("false")])]), _vm._v(" "), _c('p', [_vm._v("Small modal (see boostrap's documentation for .modal-sm)")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("title")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("Title of the modal component.")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("value")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("true if modal need to be shown, note the Modal has no intenal state")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("width")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Number, String or null")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("null")])]), _vm._v(" "), _c('p', [_vm._v("Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.")])])]), _vm._v(" "), _c('doc-table', {
+	  }, [_vm._v("\n    <!-- with v-model (\"cancel\" event close the modal, \"ok\" don't, so you have to do it manual) -->\n    <modal v-model=\"show\" @ok=\"show = false\">\n      ...\n    </modal>\n    <!-- handling ok & cancel events -->\n    <modal title=\"Fade/Zoom Modal\" effect=\"fade/zoom\"\n      :value=\"show\" @ok=\"okAction\" @cancel=\"cancelAction\"\n    >\n      ...\n    </modal>\n    <modal v-model=\"show\" effect=\"fade\">\n      <!-- custom header -->\n      <div slot=\"modal-header\" class=\"modal-header\">\n        <h4 class=\"modal-title\">\n          <i>Custom</i> <code>Modal</code> <b>Title</b>\n        </h4>\n      </div>\n      ...\n      <!-- custom buttons -->\n      <div slot=\"modal-footer\" class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" @click=\"show = false\">Exit</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"saveMethod\">Custom Save</button>\n        <button type=\"button\" class=\"btn btn-success\" @click=\"otherMethod\">Another Action</button>\n      </div>\n    </modal>\n  ")]), _vm._v(" "), _c('doc-table', [_c('div', [_c('p', [_vm._v("backdrop")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("true")])]), _vm._v(" "), _c('p', [_vm._v("Enables/disables closing the modal by clicking on the backdrop.")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("callback")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Function")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("A callback Function when you click the modal primary button.")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("cancel-text")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p', [_vm._v("Close")]), _vm._v(" "), _c('p', [_vm._v("Text for cancel button")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("effect")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("set the name of the effect to use on modal, like fade or zoom")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("large")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("false")])]), _vm._v(" "), _c('p', [_vm._v("Large modal (see boostrap's documentation for .modal-lg)")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("ok-text")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p', [_vm._v("Save changes")]), _vm._v(" "), _c('p', [_vm._v("Text for OK button")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("small")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("false")])]), _vm._v(" "), _c('p', [_vm._v("Small modal (see boostrap's documentation for .modal-sm)")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("title")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("Title of the modal component.")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("value")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p'), _vm._v(" "), _c('p', [_vm._v("true if modal need to be shown, note the Modal has no intenal state")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("width")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Number, String or null")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("null")])]), _vm._v(" "), _c('p', [_vm._v("Pass a Number in pixels or a String with relational sizes ( e.g. '80%' or '5em' ). If null, the modal will be responsive per bootstrap's default.")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("aside")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Boolean")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("false")])]), _vm._v(" "), _c('p', [_vm._v("true if the modal is not the top modal being displayed, false otherwise")])]), _vm._v(" "), _c('div', [_c('p', [_vm._v("aside-index")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("Number")])]), _vm._v(" "), _c('p', [_c('code', [_vm._v("1")])]), _vm._v(" "), _c('p', [_vm._v("The current index in the stack of modals. Needed to get the correct offset. There should be no duplicate indexes because that will cause problems.")])])]), _vm._v(" "), _c('doc-table', {
 	    attrs: {
 	      "type": "Events"
 	    }
@@ -13974,7 +13987,7 @@
 	    })])
 	  })), _vm._v(" "), _c('li', [_c('a', {
 	    attrs: {
-	      "href": "https://github.com/wffranco/vue-strap",
+	      "href": "https://github.com/themcaffee/vue-strap",
 	      "target": "_blank"
 	    }
 	  }, [_vm._v("\n          Fork this project on Github\n          "), _c('svg', {
@@ -14021,7 +14034,7 @@
 	    attrs: {
 	      "language": "markup"
 	    }
-	  }, [_vm._v("\n    <navbar placement=\"top\" type=\"default\">\n      <!-- Brand as slot -->\n      <a slot=\"brand\" href=\"/\" title=\"Home\" class=\"navbar-brand\">VueStrap</a>\n      <!-- You can use dropdown component -->\n      <dropdown text=\"Dropdown\">\n        <li><a href=\"link\">Option</a></li>\n      </dropdown>\n      <!-- Or normal bootstrap style -->\n      <li class=\"dropdown\">\n        <a href=\"#\" class=\"dropdown-toggle\">Dropdown</a>\n        <ul class=\"dropdown-menu\">\n          <li><a href=\"link\">Option</a></li>\n        </ul>\n      </li>\n      <!-- For positioning use slot=\"left\" or slot=\"right\" -->\n      <li slot=\"right\">\n        <a href=\"https://github.com/wffranco/vue-strap\" target=\"_blank\">Fork...</a>\n      </li>\n    </navbar>\n  ")]), _vm._v(" "), _c('doc-table', [_c('div', [_c('p', [_vm._v("placement")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")]), _vm._v(", one of "), _c('code', [_vm._v("top")]), _vm._v(", "), _c('code', [_vm._v("bottom")]), _vm._v(", "), _c('code', [_vm._v("static")]), _vm._v(", or empty for normal.")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("''")])]), _vm._v(" "), _c('p')]), _vm._v(" "), _c('div', [_c('p', [_vm._v("type")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")]), _vm._v(", one of "), _c('code', [_vm._v("inverse")]), _vm._v(", "), _c('code', [_vm._v("default")]), _vm._v(".")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("default")])]), _vm._v(" "), _c('p')])])], 1)
+	  }, [_vm._v("\n    <navbar placement=\"top\" type=\"default\">\n      <!-- Brand as slot -->\n      <a slot=\"brand\" href=\"/\" title=\"Home\" class=\"navbar-brand\">VueStrap</a>\n      <!-- You can use dropdown component -->\n      <dropdown text=\"Dropdown\">\n        <li><a href=\"link\">Option</a></li>\n      </dropdown>\n      <!-- Or normal bootstrap style -->\n      <li class=\"dropdown\">\n        <a href=\"#\" class=\"dropdown-toggle\">Dropdown</a>\n        <ul class=\"dropdown-menu\">\n          <li><a href=\"link\">Option</a></li>\n        </ul>\n      </li>\n      <!-- For positioning use slot=\"left\" or slot=\"right\" -->\n      <li slot=\"right\">\n        <a href=\"https://github.com/themcaffee/vue-strap\" target=\"_blank\">Fork...</a>\n      </li>\n    </navbar>\n  ")]), _vm._v(" "), _c('doc-table', [_c('div', [_c('p', [_vm._v("placement")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")]), _vm._v(", one of "), _c('code', [_vm._v("top")]), _vm._v(", "), _c('code', [_vm._v("bottom")]), _vm._v(", "), _c('code', [_vm._v("static")]), _vm._v(", or empty for normal.")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("''")])]), _vm._v(" "), _c('p')]), _vm._v(" "), _c('div', [_c('p', [_vm._v("type")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("String")]), _vm._v(", one of "), _c('code', [_vm._v("inverse")]), _vm._v(", "), _c('code', [_vm._v("default")]), _vm._v(".")]), _vm._v(" "), _c('p', [_c('code', [_vm._v("default")])]), _vm._v(" "), _c('p')])])], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -18587,7 +18600,7 @@
 	  }, [_vm._v("Vue.js")]), _vm._v(".")]), _vm._v(" "), _c('p', [_vm._v("No jQuery, bootstrap.js, or any 3rd party plugins required.")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('p', [_c('a', {
 	    staticClass: "btn btn-outline-inverse btn-lg",
 	    attrs: {
-	      "href": "https://github.com/wffranco/vue-strap"
+	      "href": "https://github.com/themcaffee/vue-strap"
 	    }
 	  }, [_vm._v("Code on GitHub")])])])])
 	},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -18603,7 +18616,7 @@
 	    attrs: {
 	      "href": "https://github.com/wffranco/"
 	    }
-	  }, [_vm._v("wffranco")]), _vm._v(".")]), _vm._v(" "), _c('p', [_vm._v("\n        Using "), _c('a', {
+	  }, [_vm._v("wffranco")]), _vm._v(".")]), _vm._v(" "), _c('p', [_vm._v("Expanded on by "), _vm._v("=\"https://github.com/themcaffee/\">themcaffee"), _vm._v(".")]), _vm._v(" "), _c('p', [_vm._v("\n        Using "), _c('a', {
 	    attrs: {
 	      "href": "http://twitter.github.com/bootstrap",
 	      "target": "_blank"
