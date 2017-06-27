@@ -1,5 +1,5 @@
 <template>
-  <div role="dialog" :class="['modal',effect]" @click="backdrop&&action(false,1)" @transitionend="transition = false">
+  <div role="dialog" :class="['modal',effect]" @click="backdrop&&action(false,1)" @transitionend="transition = false" :style="{ zIndex: zIndex }">
     <div :class="['modal-dialog',stackClass,{'modal-lg':large,'modal-sm':small}]" role="document" :style="{width: optionalWidth}" @click.stop="action(null)">
       <div class="modal-content">
         <slot name="modal-header">
@@ -55,6 +55,9 @@ export default {
     },
     stackClass () {
       return this.stacked ? 'stack stack-' + this.stackIndex : ''
+    },
+    zIndex () {
+      return this.stacked ? '1040' : '1050'
     }
   },
   watch: {
