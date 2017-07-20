@@ -6883,7 +6883,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 	
 	      this.$nextTick(function () {
-	        var popover = _this2.$refs.popover;
+	        var popover = _this2.$refs.popover || { style: {} };
 	        var trigger = _this2.$refs.trigger.children[0];
 	        switch (_this2.placement) {
 	          case 'top':
