@@ -53,6 +53,17 @@
           <span slot="before" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
           <span slot="after" class="input-group-addon"><span class="glyphicon glyphicon-question-sign"></span></span>
         </bs-input>
+        <bs-input
+          label="Prefilled input"
+          v-model="inputWithValue"
+        ></bs-input>
+        <bs-input
+          label="Prefilled input 2"
+          v-model="inputWithValue"
+        ></bs-input>
+        <pre>{{inputWithValue}}</pre>
+        <input type="text" v-model="inputWithValue">
+        <input type="text" v-model="inputWithValue">
         <bs-input name="textarea" label="Textarea" type="textarea" :icon="check.icon" :enter-submit="check.enterSubmit"
           @focus="event = 'focused'"
           @blur="event = 'blured'"
@@ -315,6 +326,7 @@ export default {
       event: null,
       fruits: ['apple', 'avocado', 'banana', 'cherry', 'coconut', 'grapefruit', 'kiwi', 'lime', 'orange', 'quince', 'strawberry', 'watermelon'],
       input: null,
+      inputWithValue: 'Existing value',
       match: null
     }
   },
