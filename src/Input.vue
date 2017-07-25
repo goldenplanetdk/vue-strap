@@ -1,63 +1,167 @@
 <template>
-  <div class="form-group" :class="{validate:canValidate,'has-feedback':icon,'has-error':canValidate&&valid===false,'has-success':canValidate&&valid}">
-    <slot name="label"><label v-if="label" class="control-label" @click="focus">{{label}}</label></slot>
-    <div v-if="$slots.before||$slots.after" class="input-group">
+  <div
+    class="form-group"
+    :class="{
+      validate: canValidate,
+      'has-feedback': icon,
+      'has-error': canValidate && valid === false,
+      'has-success': canValidate&&valid
+    }"
+  >
+    <slot name="label">
+      <label v-if="label" class="control-label" @click="focus">{{ label }}</label>
+    </slot>
+
+    <div
+      v-if="$slots.before || $slots.after"
+      class="input-group"
+    >
       <slot name="before"></slot>
-      <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
+
+      <textarea
+        v-if="type === 'textarea'"
+        ref="input"
+        class="form-control"
         :cols="cols"
         :disabled="disabled"
-        :list="id_datalist"
-        :max="attr(max)"
+        :minlength="minlength"
         :maxlength="maxlength"
-        :min="attr(min)"
         :name="name"
         :placeholder="placeholder"
         :readonly="readonly"
         :required="required"
         :rows="rows"
+        :title="attr(title)"
+        v-model="localValue"
+        @blur="emit" @focus="emit" @input="emit"
+      ></textarea>
+      <input
+        v-else-if="type === 'number'"
+        ref="input"
+        type="number"
+        class="form-control"
+        :disabled="disabled"
+        :min="attr(min)"
+        :max="attr(max)"
+        :name="name"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :required="required"
         :step="step"
         :title="attr(title)"
-        :type="type=='textarea'?null:type"
-        v-model="val"
+        v-model="localValue"
         @blur="emit" @focus="emit" @input="emit"
-        @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
-      ></textarea>
-      <div v-if="clearButton && value" :class="{icon:icon}">
-        <span class="close" @click="value = ''">&times;</span>
+        @keyup.enter="enterSubmit && submit()"
+      >
+      <input
+        v-else
+        ref="input"
+        type="text"
+        class="form-control"
+        :disabled="disabled"
+        :list="id_datalist"
+        :minlength="minlength"
+        :maxlength="maxlength"
+        :name="name"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :required="required"
+        :title="attr(title)"
+        v-model="localValue"
+        @blur="emit" @focus="emit" @input="emit"
+        @keyup.enter="enterSubmit && submit()"
+      >
+
+      <div v-if="clearButton && localValue" :class="{icon:icon}">
+        <span class="close" @click="localValue = ''">&times;</span>
       </div>
+
       <div v-if="icon" class="icon">
-        <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
+        <span
+          v-if="icon && valid !==null "
+          :class="['form-control-feedback glyphicon' , 'glyphicon-' + (valid ? 'ok' : 'remove')]"
+          aria-hidden="true"
+        ></span>
       </div>
+
       <slot name="after"></slot>
     </div>
     <template v-else>
-      <textarea :is="type=='textarea'?type:'input'" class="form-control" ref="input"
+
+      <textarea
+        v-if="type === 'textarea'"
+        ref="input"
+        class="form-control"
         :cols="cols"
         :disabled="disabled"
-        :list="id_datalist"
-        :max="attr(max)"
+        :minlength="minlength"
         :maxlength="maxlength"
-        :min="attr(min)"
         :name="name"
         :placeholder="placeholder"
         :readonly="readonly"
         :required="required"
         :rows="rows"
+        :title="attr(title)"
+        v-model="localValue"
+        @blur="emit" @focus="emit" @input="emit"
+      ></textarea>
+      <input
+        v-else-if="type === 'number'"
+        ref="input"
+        type="number"
+        class="form-control"
+        :disabled="disabled"
+        :min="attr(min)"
+        :max="attr(max)"
+        :name="name"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :required="required"
         :step="step"
         :title="attr(title)"
-        :type="type=='textarea'?null:type"
-        v-model="val"
+        v-model="localValue"
         @blur="emit" @focus="emit" @input="emit"
-        @keyup.enter="type!='textarea'&&enterSubmit&&submit()"
-      ></textarea>
-      <span v-if="clearButton && val" class="close" @click="val = ''">&times;</span>
-      <span v-if="icon&&valid!==null" :class="['form-control-feedback glyphicon','glyphicon-'+(valid?'ok':'remove')]" aria-hidden="true"></span>
+        @keyup.enter="enterSubmit && submit()"
+      >
+      <input
+        v-else
+        ref="input"
+        type="text"
+        class="form-control"
+        :disabled="disabled"
+        :list="id_datalist"
+        :minlength="minlength"
+        :maxlength="maxlength"
+        :name="name"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :required="required"
+        :title="attr(title)"
+        v-model="localValue"
+        @blur="emit" @focus="emit" @input="emit"
+        @keyup.enter="enterSubmit && submit()"
+      >
+
+      <div v-if="clearButton && localValue" :class="{icon:icon}">
+        <span class="close" @click="localValue = ''">&times;</span>
+      </div>
+
+      <div v-if="icon" class="icon">
+        <span
+          v-if="icon && valid !==null "
+          :class="['form-control-feedback glyphicon' , 'glyphicon-' + (valid ? 'ok' : 'remove')]"
+          aria-hidden="true"
+        ></span>
+      </div>
+
     </template>
+
     <datalist v-if="id_datalist" :id="id_datalist">
       <option v-for="opc in options" :value="opc"></option>
     </datalist>
-    <div v-if="showHelp" class="help-block" @click="focus">{{help}}</div>
-    <div v-if="showError" class="help-block with-errors" @click="focus">{{errorText}}</div>
+
+    <div v-if="showHelp" class="help-block" @click="focus">{{ help }}</div>
+    <div v-if="showError" class="help-block with-errors" @click="focus">{{ errorText }}</div>
   </div>
 </template>
 
@@ -101,10 +205,10 @@ export default {
     value: {default: null}
   },
   data () {
-    var val = this.value
+    var localValue = this.value
     return {
       options: this.datalist,
-      val,
+      localValue,
       valid: null,
       timeout: null
     }
@@ -147,15 +251,15 @@ export default {
     url (val) {
       this._url()
     },
-    val (val, old) {
+    localValue (val, old) {
       this.$emit('input', val)
       if (val !== old) {
         if (this.mask instanceof Function) {
           val = this.mask(val || '')
-          if (this.val !== val) {
+          if (this.localValue !== val) {
             if (this._timeout.mask) clearTimeout(this._timeout.mask)
             this._timeout.mask = setTimeout(() => {
-              this.val = val
+              this.localValue = val
             }, isNaN(this.maskDelay) ? 0 : this.maskDelay)
           }
         }
@@ -168,7 +272,7 @@ export default {
       if (this._parent) this._parent.validate()
     },
     value (val) {
-      if (this.val !== val) { this.val = val }
+      if (this.localValue !== val) { this.localValue = val }
     }
   },
   methods: {
@@ -206,13 +310,13 @@ export default {
     },
     validate () {
       if (!this.canValidate) { return true }
-      let value = typeof this.val === 'number' ? this.val : (this.val || '').trim()
+      let value = typeof this.localValue === 'number' ? this.localValue : (this.localValue || '').trim()
       if (!value && this.value !== 0) { return !this.required }
       if (this.match !== null) { return this.match === value }
       if (value.length < this.minlength) { return false }
       if (this.nativeValidate && !this.input.checkValidity()) { return false }
       if (this.regex) {
-        if (!(this.regex instanceof Function ? this.regex(this.val) : this.regex.test(this.val))) { return false }
+        if (!(this.regex instanceof Function ? this.regex(this.localValue) : this.regex.test(this.localValue))) { return false }
       }
       return true
     },
