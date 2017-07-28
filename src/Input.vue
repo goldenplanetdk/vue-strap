@@ -252,7 +252,6 @@ export default {
       this._url()
     },
     localValue (val, old) {
-      this.$emit('input', val)
       if (val !== old) {
         if (this.mask instanceof Function) {
           val = this.mask(val || '')
@@ -351,14 +350,7 @@ export default {
     }, DELAY)
     if (this.url) this._url()
   },
-  mounted () {
-    // $(this.input).on('focus', e => { this.$emit('focus', e) }).on('blur', e => {
-    //   if (this.canValidate) { this.valid = this.validate() }
-    //   this.$emit('blur', e)
-    // })
-  },
   beforeDestroy () {
-    // $(this.input).off()
     if (this._parent) {
       var index = this._parent.children.indexOf(this)
       this._parent.children.splice(index, 1)
